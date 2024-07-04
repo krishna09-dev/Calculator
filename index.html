@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/35a7e74148.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="content">
+        <div class="details">
+            <h1 class="title" id="title">Calculator</h1>
+            <div class="toggle">
+                <input type="checkbox" id="toggleCalculator" />
+                <label for="toggleCalculator"></label>
+            </div>
+        </div>
+        <div class="broder" id="calculatorContainer">
+            <div class="calBody" id="calBody">
+                <div class="screen">
+                    <div class="history">
+                        <h1>0</h1>
+                    </div>
+                    <div class="result">
+                        <h1>0</h1>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="rows">
+                        <button>C</button>
+                        <button>%</button>
+                        <button><i class="fa-solid fa-delete-left"></i></button>
+                        <button class="right" id="right1">/</button>
+                    </div>
+                    <div class="rows">
+                        <button>7</button>
+                        <button>8</button>
+                        <button>9</button>
+                        <button class="right" id="right2">X</button>
+                    </div>
+                    <div class="rows">
+                        <button>4</button>
+                        <button>5</button>
+                        <button>6</button>
+                        <button class="right" id="right3">-</button>
+                    </div>
+                    <div class="rows">
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button class="right" id="right4">+</button>
+                    </div>
+                    <div class="rows">
+                        <button>00</button>
+                        <button>0</button>
+                        <button>.</button>
+                        <button class="right" id="right5">=</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

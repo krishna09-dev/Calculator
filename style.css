@@ -1,0 +1,176 @@
+body {
+    background-color: black;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    color: white;
+}
+.details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.toggle {
+    position: relative;
+    box-sizing: border-box;
+}
+.toggle input[type="checkbox"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
+}
+.toggle label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+.toggle label:before {
+    content: "";
+    width: 70px;
+    height: 40px;
+    background: #fff;
+    border: 2px solid #ddd;
+    box-shadow: inset -30px 0 0 #666;
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
+    box-sizing: border-box;
+    transition: 0.25s ease-in;
+}
+
+.toggle label:after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    border-radius: 50%;
+    background: #fffdfd;
+    box-shadow: inset -8px -5px #333;
+    transition: 0.2s ease-in-out;
+}
+
+.toggle input[type="checkbox"]:checked + label:before {
+    box-shadow: inset 30px 0 0 #ffeb00;
+}
+.toggle input[type="checkbox"]:checked + label:after {
+    box-shadow: inset 0 0 0 2px #fff;
+    background: #ffbc00;
+    left: 39px;
+    top: 8px;
+    border: 2px dashed #fff;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    color: white;
+    font-size: 4rem;
+    font-weight: 500;
+    margin-bottom: 5%;
+
+}
+.content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    height: 100vh; 
+}
+.broder{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 2px;
+    background-color: #f0f0f0;
+    width: 420px;
+    height: 730px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.calBody {
+    width: 400px;
+    height: 712px;
+    margin: 20px;
+    background-color: black;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 10px;
+    margin-top: 20%;
+    margin-right: 5%;
+}
+
+.result h1 {
+    color: white;
+    font-size: 4rem;
+    font-weight: 500;
+    text-align: right;
+    margin: 0;
+}
+
+.history h1 {
+    color: rgb(197, 197, 197);
+    font-size: 3rem;
+    font-weight: 500;
+    text-align: right;
+    margin: 0;
+}
+
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rows {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.rows button {
+    width: 80px;
+    height: 80px;
+    font-size: 25px;
+    border-radius: 50%;
+    background-color: #2E2F38;
+    cursor: pointer;
+    margin: 2px;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rows .right {
+    background-color: #4B5EFC;
+}
