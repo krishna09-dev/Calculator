@@ -131,6 +131,7 @@ body {
     font-weight: 500;
     text-align: right;
     margin: 0;
+    max-width: 360px;
 }
 
 .history h1 {
@@ -139,8 +140,44 @@ body {
     font-weight: 500;
     text-align: right;
     margin: 0;
+    max-width: 360px;
+    overflow:auto;
+}
+/* Scrollbar styles for light mode */
+.history h1.light::-webkit-scrollbar {
+    width: 10px;
 }
 
+.history h1.light::-webkit-scrollbar-track {
+    background: #dfdfdf;
+}
+
+.history h1.light::-webkit-scrollbar-thumb {
+    background-color: #d8d8d8;
+    border-radius: 20px;
+}
+
+.history h1.light::-webkit-scrollbar-thumb:hover {
+    background-color: #c7c7c7;
+}
+
+/* Scrollbar styles for dark mode */
+.history h1.dark::-webkit-scrollbar {
+    width: 10px;
+}
+
+.history h1.dark::-webkit-scrollbar-track {
+    background: #353535;
+}
+
+.history h1.dark::-webkit-scrollbar-thumb {
+    background-color: #444444; 
+    border-radius: 20px; 
+}
+
+.history h1.dark::-webkit-scrollbar-thumb:hover {
+    background-color: #424242;
+}
 
 .buttons {
     display: flex;
@@ -174,3 +211,5 @@ body {
 .rows .right {
     background-color: #4B5EFC;
 }
+
+

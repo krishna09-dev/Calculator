@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/35a7e74148.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <link rel="icon" href="images/calculator-icon.avif">
+    <title>Calculator</title>
 </head>
 <body>
     
@@ -21,42 +22,42 @@
             <div class="calBody" id="calBody">
                 <div class="screen">
                     <div class="history">
-                        <h1>0</h1>
+                        <h1 id="historyDisplay">0</h1>
                     </div>
                     <div class="result">
-                        <h1>0</h1>
+                        <h1 id="resultDisplay">0</h1>
                     </div>
                 </div>
                 <div class="buttons">
                     <div class="rows">
-                        <button>C</button>
-                        <button>%</button>
-                        <button><i class="fa-solid fa-delete-left"></i></button>
-                        <button class="right" id="right1">/</button>
+                        <button onclick="clearDisplay()">C</button>
+                        <button onclick="addToHistory('%')">%</button>
+                        <button onclick="deleteLast()"> <i class="fa-solid fa-delete-left"></i></button>
+                        <button class="right" id="right1" onclick="addToHistory('/')">/</button>
                     </div>
                     <div class="rows">
-                        <button>7</button>
-                        <button>8</button>
-                        <button>9</button>
-                        <button class="right" id="right2">X</button>
+                        <button onclick="addToHistory('7')">7</button>
+                        <button onclick="addToHistory('8')">8</button>
+                        <button onclick="addToHistory('9')">9</button>
+                        <button class="right" id="right2" onclick="addToHistory('*')">X</button>
                     </div>
                     <div class="rows">
-                        <button>4</button>
-                        <button>5</button>
-                        <button>6</button>
-                        <button class="right" id="right3">-</button>
+                        <button onclick="addToHistory('4')">4</button>
+                        <button onclick="addToHistory('5')">5</button>
+                        <button onclick="addToHistory('6')">6</button>
+                        <button class="right" id="right3" onclick="addToHistory('-')">-</button>
                     </div>
                     <div class="rows">
-                        <button>1</button>
-                        <button>2</button>
-                        <button>3</button>
-                        <button class="right" id="right4">+</button>
+                        <button onclick="addToHistory('1')">1</button>
+                        <button onclick="addToHistory('2')">2</button>
+                        <button onclick="addToHistory('3')">3</button>
+                        <button class="right" id="right4" onclick="addToHistory('+')">+</button>
                     </div>
                     <div class="rows">
-                        <button>00</button>
-                        <button>0</button>
-                        <button>.</button>
-                        <button class="right" id="right5">=</button>
+                        <button onclick="addToHistory('00')">00</button>
+                        <button onclick="addToHistory('0')">0</button>
+                        <button onclick="addToHistory('.')">.</button>
+                        <button class="right" id="right5" onclick="calculateResult()">=</button>
                     </div>
                 </div>
             </div>
