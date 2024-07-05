@@ -90,7 +90,6 @@ function applyStyles(mode) {
     historyDisplay.classList.add(mode); // Add current mode class
 }
 
-
 // Event listener for checkbox change
 toggleCheckbox.addEventListener('change', function() {
     if (toggleCheckbox.checked) {
@@ -103,26 +102,22 @@ toggleCheckbox.addEventListener('change', function() {
 // Initial styles based on checkbox state
 applyStyles(toggleCheckbox.checked ? 'light' : 'dark');
 
-
-
-
-
 // Selecting DOM elements
 const historyDisplay = document.getElementById('historyDisplay');
 const resultDisplay = document.getElementById('resultDisplay');
 
 let history = ''; // To store the history of operations
 
-
-// Function to add to history
 function addToHistory(value) {
-    // Ensure only one character is added per click
-    if (value.length > 0 || value==='00') {
-        value = value[0]; // Take only the first character if more than one is provided
+    if(value==='00'){
+        history += value;
+        historyDisplay.innerText = history;
+
+    }else if(value.length > 0){
+        value = value[0];
+        history += value;
+        historyDisplay.innerText = history;
     }
-    
-    history += value;
-    historyDisplay.innerText = history;
 }
 
 // Function to clear the display
@@ -140,72 +135,14 @@ function deleteLast() {
 // Function to calculate the result
 function calculateResult() {
     try {
-        // Using regular expressions to find and calculate operations
-        var foundSymbols = ['+', '-', '*', '/', '%', '^'];
-        var regex = new RegExp('([' + foundSymbols.join('\\') + '])', 'g');
-        var parts = history.split(regex).filter(Boolean); // Filter out empty strings
-        var result = '';
-
-        // Convert parts to numbers where possible
-        for (var i = 0; i < parts.length; i++) {
-            if (!foundSymbols.includes(parts[i])) {
-                parts[i] = parseFloat(parts[i]);
-            }
+        // Sanitize the input to ensure it's a valid mathematical expression
+        const validCharacters = /^[0-9+\-*/%^().\s]*$/;
+        if (!validCharacters.test(history)) {
+            throw new Error('Invalid input');
         }
 
-        // Function to perform operations in order of precedence
-        function performOperation(ops, sym) {
-            if (!ops.includes(sym)) {
-                return;
-            }else{
-                while (ops.includes(sym)) {
-                    var index = ops.indexOf(sym);
-                    var operand1 = parts[index - 1];
-                    var operand2 = parts[index + 1];
-                    var operationResult;
-
-                    switch (sym) {
-                        case '*':
-                            operationResult = operand1 * operand2;
-                            break;
-                        case '/':
-                            if (operand2 === 0) {
-                                throw new Error('Division by zero');
-                            }
-                            operationResult = operand1 / operand2;
-                            break;
-                        case '%':
-                            // Check if the % is a standalone postfix operator
-                            if (index === ops.length - 1) {
-                                operationResult = operand1 / 100; // Convert to percentage
-                            } else {
-                                operationResult = operand1 % operand2;
-                            }
-                            break;
-                        case '+':
-                            operationResult = operand1 + operand2;
-                            break;
-                        case '-':
-                            operationResult = operand1 - operand2;
-                            break;
-                    }
-
-                    parts.splice(index - 1, 3, operationResult); // Replace operands and operator with result
-                    ops.splice(index, 1); // Remove operator from ops array
-                }
-            }
-        }
-
-        // Perform operations in order of precedence
-        performOperation(parts, '^');
-        performOperation(parts, '*');
-        performOperation(parts, '/');
-        performOperation(parts, '%');
-        performOperation(parts, '+');
-        performOperation(parts, '-');
-
-        // The final result is the only remaining part
-        result = parts[0];
+        // Evaluate the expression using JavaScript's built-in eval function
+        const result = eval(history.replace('^', '**')); // Replace ^ with ** for exponentiation
 
         // Display the result
         resultDisplay.innerText = result;
