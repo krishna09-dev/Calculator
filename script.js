@@ -108,16 +108,10 @@ const resultDisplay = document.getElementById('resultDisplay');
 
 let history = ''; // To store the history of operations
 
+// Function to add to history
 function addToHistory(value) {
-    if(value==='00'){
-        history += value;
-        historyDisplay.innerText = history;
-
-    }else if(value.length > 0){
-        value = value[0];
-        history += value;
-        historyDisplay.innerText = history;
-    }
+    history += value;
+    historyDisplay.innerText = history;
 }
 
 // Function to clear the display
@@ -132,6 +126,7 @@ function deleteLast() {
     history = history.slice(0, -1);
     historyDisplay.innerText = history;
 }
+
 // Function to calculate the result
 function calculateResult() {
     try {
@@ -142,7 +137,7 @@ function calculateResult() {
         }
 
         // Evaluate the expression using JavaScript's built-in eval function
-        const result = eval(history.replace('^', '**')); // Replace ^ with ** for exponentiation
+        const result = eval(history.replace(/\^/g, '**')); // Replace ^ with ** for exponentiation
 
         // Display the result
         resultDisplay.innerText = result;
