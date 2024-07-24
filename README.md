@@ -20,7 +20,7 @@ This is a simple calculator application built using HTML, CSS, and JavaScript. I
 
 ## Demo
 
-Check out the live demo of the calculator application [here](https://calculator-krishna09.netlify.app/).
+Check out the live demo of the calculator application [here](https://calculator-krishn09.netlify.app/).
 
 ## Installation
 
